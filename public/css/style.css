@@ -1,0 +1,106 @@
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+.glyphicon-thumbs-up, .glyphicon-thumbs-down, .glyphicon-trash  { 
+  cursor:pointer;
+    
+}
+
+body {
+  padding: 1px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  margin: 2px 0 0 0;
+}
+
+h4 {
+  margin: 2px 0 20px 0;
+}
+
+p {
+  font-weight: bold;
+}
+
+.page-header-new {
+  padding-bottom: 9px;
+  margin: 20px 0 20px;
+  /*border-bottom: 1px solid #eee;*/
+}
+
+a, a:active, a:visited {
+  color: #966c36;
+  padding-left: 6px;
+  padding-right: 6px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+ a:hover {
+
+  color: #7e3d08;
+  text-decoration: none;
+}
+
+
+
+.glyphicon-pencil {
+  cursor:pointer;
+}
+
+.upvotes {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;  
+  font-size: 13px;
+}
+
+.post-title {
+  font-size: 20px;
+  margin: 2px 1px 0 0;
+  padding: 2px 1px 0 1px;
+  
+}
+
+.posts {
+  margin: 0 0 0 0;
+  
+}
+
+.searchbox {
+  width: 600px;
+  height: 50px;
+}
+
+.title {
+  width: 600px;
+}
+
+.link {
+  width: 600px;
+}
+
+.comment {
+  width: 600px;
+}
+
+.username {
+  width: 600px;
+}
+
+.password {
+  width: 600px;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  margin: -5px 10px 0 0;
+  border-radius: 40px;
+  vertical-align: top;
+
+}

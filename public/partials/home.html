@@ -1,0 +1,74 @@
+<!-- presentation of posts and the links and possibility to upvote and comment. -->
+    <section class="col-xs-12 col-sm-10 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+      
+
+
+    <!-- form for posting posts and links. -->
+    <div class="col-xs-12 col-sm-10 col-md-12 col-lg-12">  
+        <form ng-submit="addPost()" ng-show="isLoggedIn()"> 
+          <div>
+            <button type="submit" class="btn btn-s btn-success" ng-click="addForm = true; hideForm = true" ng-hide="hideForm">Add a new post</button>
+          </div>
+            <div ng-show="addForm">
+                <h4>Write a title for the link, then add the link, with http:// at the beginning.</h4>
+                <div class="form-group">
+                    <input type="text" class="form-control title" placeholder="Title" ng-model="title"></input>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control link" placeholder="Link - Don't forget http:// before www" 
+                ng-model="link"></input>
+                </div>
+                    <button type="submit" class="btn btn-s btn-primary">Post</button>
+            </div>
+        </form>
+        <br/>
+    <!-- filter posts and comments. -->   
+
+        <div class="searchbox">
+            <i class="icon-search"></i>
+            <input ng-model="query" type="search"
+                   class="form-control" 
+                   placeholder="Search" />
+        </div>
+    </div>
+    <!-- List posts and comments. -->
+
+        <div ng-show="isLoggedIn()"> 
+            <div class="col-xs-12 col-sm-10 col-md-12 col-lg-12" ng-repeat="post in posts | filter:query | orderBy: '-upvotes'">
+                    <!-- Post: {{$index+1}} -->
+                
+                <div class="col-lg-2">
+                    <button class="btn btn-xs btn-danger" ng-click="deletePost($index)">delete</button>
+               
+                    
+                    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+                        {{post.upvotes}}
+                    
+                </div>
+                <div class="col-lg-8">
+                    <span style="font-size:20px; ">
+                        <a target-blank ng-show="post.link" ng-href="{{post.link}}">
+                          {{post.title}} 
+                        </a>
+                        <span ng-hide="post.link">
+                          {{post.title}}
+                        </span>
+                    </span>
+               
+                    <span ng-show="post.author">
+                            posted by <a>{{post.author}}</a> 
+                    </span>            
+                    <span>
+                        <a href="#/posts/{{post._id}}">Comments</a>
+                    </span>
+                </div>
+            </div>
+        </div> 
+
+
+        <div ng-hide="isLoggedIn()">
+            <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can see add a post.</h3>
+        </div>
+   
+    </section>
+               

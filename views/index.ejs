@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Some good News</title>
+    <meta charset="utf-8">
+    <base href="/"/>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/libs/angular.min.js"></script>
+    <script src="js/libs/angular-ui-router.js"></script>
+    <script src="js/libs/ui-bootstrap-tpls-0.13.1.min.js"></script>
+    <!-- Angular config -->
+    <script src="/js/angularApp.js"></script>
+
+    <!-- Angular controllers -->
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/postsController.js"></script>
+    <script src="js/controllers/authController.js"></script>
+    <script src="js/controllers/navController.js"></script>
+
+    <!-- Angular services -->
+    <script src="js/services/postsfactory.js"></script>
+    <script src="js/services/authfactory.js"></script>
+    <style> 
+    .glyphicon-thumbs-up { cursor:pointer } </style>
+  </head>
+<body ng-app="SomeGoodLinks">
+
+  <div class="container">
+    <div class="header clearfix">
+
+          <nav ng-controller="navController">
+
+              <ul class="nav nav-pills pull-right">               
+                <li ng-show="isLoggedIn()"><a ng-href="#">{{ currentUser() }}</a></li>
+                <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
+                <li ng-hide="isLoggedIn()"><a href="#/login">Log In</a></li>
+                <li ng-hide="isLoggedIn()"><a href="#/register">Register</a></li>
+                <li ng-show="isLoggedIn()"><a ng-href="img/{{ currentUser() }}.jpg"><img class="profile-image" ng-src="img/{{ currentUser() }}.jpg"></a></li>
+              </ul>
+              <ul class="nav nav-pills"> 
+
+              
+            </ul>
+          </nav>
+
+    </div>      
+          <div id="content" ui-view>
+          </div>
+  </div> 
+
+</body>
+</html>

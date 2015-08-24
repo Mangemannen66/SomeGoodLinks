@@ -1,0 +1,42 @@
+        <!-- presentation of separate post and the links and possibility to comment / upvote comments -->
+            <!-- post template -->
+    <section class="container col-xs-12 col-sm-10 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
+      <div class="row">
+            <div class="page-header-new">
+                <h3>
+                    <a ng-show="post.link" href="{{post.link}}">
+                    {{post.title}}
+                    </a>
+                    <span ng-hide="post.link">
+                    {{post.title}}
+                    </span>
+                </h3>
+            </div>
+            <!-- form for posting comments. -->
+            <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">Vote&nbsp;
+                <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)">&nbsp;</span>
+
+                {{comment.upvotes}} - by {{comment.author}} 
+                
+                <span style="font-size:16px; margin-left:10px;">{{comment.body}}</span>
+            </div>
+
+            <form ng-submit="addComment()" ng-show="isLoggedIn()">
+                <h3>Add a new comment</h3>
+
+                <div class="form-group">
+                    <input type="text" class="form-control comment" placeholder="Comment" ng-model="body"></input>
+                </div>
+                    <button type="submit" class="btn btn-s btn-primary">Post</button>
+                     
+                <a href back-button><button class="back btn btn-s ">Back</button></a>
+
+                <br>
+
+            </form>
+            <div ng-hide="isLoggedIn()">
+              <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can comment.</h3>
+            </div>
+        </div>
+    </section>
+       
